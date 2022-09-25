@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Http\Livewire\Traits\AlertMessage;
 use App\Models\User;
 use App\Models\Jobs;
+use App\Models\Project;
 use App\Models\PaymentDetails;
 use Illuminate\Validation\Rule;
 use Livewire\WithFileUploads;
@@ -46,7 +47,7 @@ class PaymentCreateEdit extends Component
             "value"=> "", "text"=> "== Select One =="
         ];
         $this->jobList = Jobs::get();
-        $this->hospitalList = User::role('HOSPITAL')->get();
+        $this->hospitalList = Project::get();
     }
 
     public function validationRuleForSave(): array

@@ -2,12 +2,12 @@
     <x-slot name="form">
 
     <x-admin.form-group>
-            <x-admin.lable value="Hospital-Institute" required/>
+            <x-admin.lable value="Project" required/>
             <x-admin.dropdown  wire:model.defer="user_id" placeHolderText="Please select Hospital Institute" autocomplete="off" class="{{ $errors->has('user_id') ? 'is-invalid' :'' }}">
             <x-admin.dropdown-item  :value="$blankArr['value']" :text="$blankArr['text']"/> 
                     @if(isset($hospitalList))
                         @foreach($hospitalList as $hospital)
-                        <x-admin.dropdown-item  :value="$hospital->id" :text="$hospital->first_name"/>
+                        <x-admin.dropdown-item  :value="$hospital->id" :text="$hospital->project_name"/>
                         @endforeach
                     @endif
             </x-admin.dropdown>

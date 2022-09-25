@@ -37,8 +37,8 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th><b>Hospital Name:</b></th>
-                                    <th>{{$details->user->first_name}} {{$details->user->last_name}}</th>
+                                    <th><b>Project Name:</b></th>
+                                    <th>{{$details->user->project_name}}</th>
                                 </tr>
                                                        
                             </thead>

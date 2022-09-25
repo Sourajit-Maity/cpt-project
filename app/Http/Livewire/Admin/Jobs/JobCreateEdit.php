@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Http\Livewire\Traits\AlertMessage;
 use App\Models\User;
 use App\Models\State;
+use App\Models\Project;
 use App\Models\Country;
 use App\Models\City;
 use App\Models\Jobs;
@@ -19,13 +20,13 @@ class JobCreateEdit extends Component
 {
     use WithFileUploads;
     use AlertMessage;
-    public $nurse_id, $job, $shifting_timings, $hospital_id, $additional_instructions, $hospital_name, $blankArr, $employee_required, $skills, $active, $hiring_budget, $hospital_phone, $urgent_requirement, $cityList, $stateList, $countryList, $hospital_location, $hospital_country_id, $hospital_state_id, $hospital_city_id;
-    public $hospital_zipcode, $job_post_date, $promo_code, $discount_amount, $reward_discount_amount, $total_amount, $job_status, $payment_status;
-    public $experience_year, $experience_month, $experience, $salary, $date_of_birth, $nurseList, $hospitalList, $licence_number, $licence_type;
+    public $project_id, $job, $shifting_timings, $user_id, $additional_instructions, $job_name, $blankArr, $employee_required, $skills, $active, $hiring_budget, $job_phone, $urgent_requirement, $cityList, $stateList, $countryList, $job_location, $job_country_id, $job_state_id, $job_city_id;
+    public $job_zipcode, $job_post_date, $promo_code, $discount_amount, $reward_discount_amount, $total_amount, $job_status, $payment_status;
+    public $experience_year, $experience_month, $experience, $salary, $date_of_birth, $nurseList, $jobList, $licence_number, $licence_type;
     public $address;
     public $isEdit = false;
-    public $jobList = [];
-    public $licenceList = [];
+    public $projectList = [];
+    public $userList = [];
     public $paymentList = [];
     public $statusList = [];
     public $urgentList = [];
@@ -53,12 +54,7 @@ class JobCreateEdit extends Component
             ['value' => 1, 'text' => "Active"],
             ['value' => 0, 'text' => "Inactive"]
         ];
-        $this->licenceList = [
-            ['value' => 1, 'text' => "Choose Status"],
-            ['value' => 1, 'text' => "CNA"],
-            ['value' => 2, 'text' => "LPN"]
-        ];
-
+       
         $this->jobList = [
             ['value' => 1, 'text' => "Choose Status"],
             ['value' => 1, 'text' => "Ongoing"],
@@ -79,9 +75,9 @@ class JobCreateEdit extends Component
         $this->countryList = Country::get();
         $this->cityList = City::get();
         $this->roleList = Role::where('name', '!=', 'SUPER-ADMIN')->get();
-        $this->nurseList = User::role('NURSE')->get();
-        $this->hospitalList = User::role('HOSPITAL')->get();
-        // dd($this->hospitalList);    
+        $this->projectList = Project::get();
+        $this->userList = User::role('CLIENT')->get();
+        // dd($this->projectList);    
 
     }
 
@@ -90,28 +86,18 @@ class JobCreateEdit extends Component
         return
             [
                 'active' => ['required'],
-                'nurse_id' => ['nullable'],
-                'hospital_id' => ['required'],
-                'hospital_country_id' => ['required', 'exists:countries,id'],
-                'hospital_state_id' => ['required'],
-                'hospital_city_id' => ['required'],
+                'user_id' => ['nullable'],
+                'project_id' => ['required'],     
                 'additional_instructions' => ['nullable'],
-                'hospital_name' => ['required'],
-                'experience' => ['required', 'regex:/^([0-9\s+\(\)]*)$/', 'min:1', 'max:13'],
-                //'employee_required' => ['required', 'regex:/^([0-9\s+\(\)]*)$/', 'min:1', 'max:10'],
-                'skills' => ['required'],
+                'job_name' => ['required'],
                 'hiring_budget' => ['required'],
-                'licence_type' => ['required'],
-                'hospital_phone' => ['required', 'regex:/^([0-9\s+\(\)]*)$/', 'min:8', 'max:13'],
+                
                 'urgent_requirement' => ['required'],
-                'hospital_location' => ['required'],
-                'hospital_zipcode' => ['required', 'regex:/^([0-9\s+\(\)]*)$/', 'min:5', 'max:10'],
                 'promo_code' => ['required'],
                 'discount_amount' => ['required', 'regex:/^([0-9\s+\(\)]*)$/', 'min:1', 'max:50'],
                 'total_amount' => ['required', 'regex:/^([0-9\s+\(\)]*)$/', 'min:1', 'max:50'],
                 'job_status' => ['required'],
                 'payment_status' => ['required'],
-                'shifting_timings' => ['required'],
 
             ];
     }
@@ -120,28 +106,19 @@ class JobCreateEdit extends Component
         return
             [
                 'active' => ['required'],
-                'nurse_id' => ['nullable'],
-                'hospital_id' => ['required'],
-                'hospital_country_id' => ['required', 'exists:countries,id'],
-                'hospital_state_id' => ['required'],
-                'hospital_city_id' => ['required'],
+                'user_id' => ['nullable'],
+                'project_id' => ['required'],
                 'additional_instructions' => ['nullable'],
-                'hospital_name' => ['required'],
-                'experience' => ['required', 'regex:/^([0-9\s+\(\)]*)$/', 'min:1', 'max:13'],
-                //'employee_required' => ['required', 'regex:/^([0-9\s+\(\)]*)$/', 'min:1', 'max:10'],
+                'job_name' => ['required'],
                 'skills' => ['required'],
                 'hiring_budget' => ['required'],
-                'licence_type' => ['required'],
-                'hospital_phone' => ['required', 'regex:/^([0-9\s+\(\)]*)$/', 'min:8', 'max:13'],
+                
                 'urgent_requirement' => ['required'],
-                'hospital_location' => ['required'],
-                'hospital_zipcode' => ['required', 'regex:/^([0-9\s+\(\)]*)$/', 'min:5', 'max:10'],
                 'promo_code' => ['required'],
                 'discount_amount' => ['required', 'regex:/^([0-9\s+\(\)]*)$/', 'min:1', 'max:50'],
                 'total_amount' => ['required', 'regex:/^([0-9\s+\(\)]*)$/', 'min:1', 'max:50'],
                 'job_status' => ['required'],
                 'payment_status' => ['required'],
-                'shifting_timings' => ['required'],
             ];
     }
 

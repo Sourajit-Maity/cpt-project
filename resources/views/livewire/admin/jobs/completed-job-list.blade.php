@@ -13,18 +13,15 @@
     <x-slot name="thead">
         <tr role="row">
             <th tabindex="0" aria-controls="kt_table_1" rowspan="1" colspan="1" style="width: 15%;"
-                aria-sort="ascending" aria-label="Agent: activate to sort column descending">Nurse Name <i
+                aria-sort="ascending" aria-label="Agent: activate to sort column descending">User Name <i
                     class="fa fa-fw fa-sort pull-right" style="cursor: pointer;" wire:click="sortBy('first_name')"></i>
             </th>
             <th tabindex="0" aria-controls="kt_table_1" rowspan="1" colspan="1" style="width: 15%;"
-                aria-sort="ascending" aria-label="Agent: activate to sort column descending">Hospial Name <i
-                    class="fa fa-fw fa-sort pull-right" style="cursor: pointer;" wire:click="sortBy('first_name')"></i>
+                aria-sort="ascending" aria-label="Agent: activate to sort column descending">Project Name <i
+                    class="fa fa-fw fa-sort pull-right" style="cursor: pointer;" wire:click="sortBy('project_name')"></i>
             </th>
             
-            <th tabindex="0" aria-controls="kt_table_1" rowspan="1" colspan="1" style="width: 15%;"
-                aria-sort="ascending" aria-label="Agent: activate to sort column descending">Location <i
-                    class="fa fa-fw fa-sort pull-right" style="cursor: pointer;" wire:click="sortBy('hospital_location')"></i>
-            </th>
+            
             <th tabindex="0" aria-controls="kt_table_1" rowspan="1" colspan="1" style="width: 15%;"
                 aria-sort="ascending" aria-label="Agent: activate to sort column descending">Date <i
                     class="fa fa-fw fa-sort pull-right" style="cursor: pointer;" wire:click="sortBy('job_post_date')"></i>
@@ -35,8 +32,8 @@
                     class="fa fa-fw fa-sort pull-right" style="cursor: pointer;" wire:click="sortBy('total_amount')"></i>
             </th>
             
-            <!-- <th class="align-center" tabindex="0" aria-controls="kt_table_1" rowspan="1" colspan="1" style="width: 20%;"
-                aria-label="Status: activate to sort column ascending">Status</th> -->
+            <th class="align-center" tabindex="0" aria-controls="kt_table_1" rowspan="1" colspan="1" style="width: 10%;"
+                aria-label="Status: activate to sort column ascending">Status</th>
 
             <th class="align-center" rowspan="1" colspan="1" style="width: 20%;" aria-label="Actions">Actions</th>
         </tr>
@@ -51,10 +48,7 @@
                 <x-admin.input type="search" wire:model.defer="searchHospital" placeholder="" autocomplete="off"
                     class="form-control-sm form-filter" />
             </th>
-            <th>
-                <x-admin.input type="search" wire:model.defer="searchLocation" placeholder="" autocomplete="off"
-                    class="form-control-sm form-filter" />
-            </th>
+           
             <th>
                 <x-admin.input type="search" wire:model.defer="searchDate" placeholder="" autocomplete="off"
                     class="form-control-sm form-filter" />
@@ -63,14 +57,14 @@
                 <x-admin.input type="search" wire:model.defer="searchAmount" placeholder="" autocomplete="off"
                     class="form-control-sm form-filter" />
             </th>
-            <!-- <th>
+            <th>
                 <select class="form-control form-control-sm form-filter kt-input" wire:model.defer="searchStatus"
                     title="Select" data-col-index="2">
-                    <option value="-1">Select One</option>
+                    <option value="-1">Select</option>
                     <option value="1">Active</option>
                     <option value="0">Deactive</option>
                 </select>
-            </th> -->
+            </th>
             <th>
                 <div class="row">
                     <div class="col-md-6">
@@ -97,21 +91,21 @@
     <x-slot name="tbody">
         @forelse($details as $item)
             <tr role="row" class="odd">
-                @if (isset($item->nurse->first_name))
-                    <td>{{ $item->nurse->first_name }} {{ $item->nurse->last_name }}</td>
+                @if (isset($item->user->first_name))
+                    <td>{{ $item->user->first_name }} {{ $item->user->last_name }}</td>
                 @else 
                     <td></td>
                 @endif
-                    <td>{{ $item->hospital->first_name }} {{ $item->hospital->last_name }}</td>
-                    <td>{{ $item->hospital_location }}</td>
-                    <td>{{ $item->job_post_date }}</td>
+                    <td>{{ $item->projects->project_name }}</td>
+                    <td>{!! \Carbon\Carbon::parse($item->job_post_date)->format('d M Y') !!}</td>
                     <td>{{ $item->total_amount }}</td> 
-                <!-- <td class="align-center"><span
-                        class="kt-badge  kt-badge--{{ $item->job_status  == 1 ? 'success' : 'warning' }} kt-badge--inline cursor-pointer"
-                        wire:click="changeStatusConfirm({{ $item->id }})">{{ $item->job_status  == 1 ? 'Active' : 'Deactive' }}</span>
-                </td> -->
-                <x-admin.td-action>                   
-                    <a class="dropdown-item" href="{{route('complete-jobs.show', ['complete_job' => $item->id])}}" ><i class="la la-edit"></i> Show</a>
+                <td class="align-center"><span
+                        class="kt-badge  kt-badge--{{ $item->active  == 1 ? 'success' : 'warning' }} kt-badge--inline cursor-pointer"
+                        wire:click="changeStatusConfirm({{ $item->id }})">{{ $item->active  == 1 ? 'Active' : 'Deactive' }}</span>
+                </td>
+                <x-admin.td-action>
+                <a class="dropdown-item" href="{{route('jobs.show', ['job' => $item->id])}}" ><i class="la la-eye"></i> Show</a>
+                <a class="dropdown-item" href="{{route('jobs.edit', ['job' => $item->id])}}" ><i class="la la-edit"></i> Edit</a>
                 </x-admin.td-action>
             </tr>
         @empty

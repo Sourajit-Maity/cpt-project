@@ -63,7 +63,7 @@
 
 					<li class="kt-menu__item {{ Request::is('admin/jobs*') ? 'kt-menu__item--active' : '' }}" aria-haspopup="true"><a href="{{route('jobs.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-spinner"><span></span></i><span class="kt-menu__link-text">In Progress Job List</span></a></li>
 					<li class="kt-menu__item {{ Request::is('admin/complete*') ? 'kt-menu__item--active' : '' }}" aria-haspopup="true"><a href="{{route('complete-jobs.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-list-alt"><span></span></i><span class="kt-menu__link-text">Complete Job List</span></a></li>
-					<li class="kt-menu__item {{ Request::is('admin/apply-details*') ? 'kt-menu__item--active' : '' }}" aria-haspopup="true"><a href="{{route('job-apply-details.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-list-alt"><span></span></i><span class="kt-menu__link-text">Job Apply List</span></a></li>
+					<!-- <li class="kt-menu__item {{ Request::is('admin/apply-details*') ? 'kt-menu__item--active' : '' }}" aria-haspopup="true"><a href="{{route('job-apply-details.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-list-alt"><span></span></i><span class="kt-menu__link-text">Job Apply List</span></a></li> -->
 					
 					<li class="kt-menu__section ">
 						<h4 class="kt-menu__section-text">Payment Management</h4>

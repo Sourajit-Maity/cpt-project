@@ -13,7 +13,7 @@
     <x-slot name="thead">
         <tr role="row">
             <th tabindex="0" aria-controls="kt_table_1" rowspan="1" colspan="1" style="width: 15%;"
-                aria-sort="ascending" aria-label="Agent: activate to sort column descending">User Name <i
+                aria-sort="ascending" aria-label="Agent: activate to sort column descending">Project Name <i
                     class="fa fa-fw fa-sort pull-right" style="cursor: pointer;" wire:click="sortBy('user_id')"></i>
             </th>           
             <th tabindex="0" aria-controls="kt_table_1" rowspan="1" colspan="1" style="width: 10%;"
@@ -91,7 +91,7 @@
         
             <tr role="row" class="odd">
               
-                    <td>{{ $item->user->first_name }} {{ $item->user->last_name }}</td>              
+                    <td>{{ $item->user->project_name }}</td>              
                     <td>{{ $item->job_id }}</td>
                     <td>{{ $item->total_amount }}</td> 
                     <td>{!! \Carbon\Carbon::parse($item->payment_datetime)->format('d M Y') !!}</td>                    

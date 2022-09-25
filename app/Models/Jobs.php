@@ -32,8 +32,6 @@ class Jobs extends Model
         'job_name',
         'employee_required',
         'hiring_budget',
-        'job_phone',
-        'experience',
         'urgent_requirement',
         'job_post_date',
         'promo_code',
@@ -53,12 +51,12 @@ class Jobs extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'nurse_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function projects()
     {
-        return $this->belongsTo(User::class, 'project_id');
+        return $this->belongsTo(Project::class, 'project_id');
     }
 
     public function cancelledby()

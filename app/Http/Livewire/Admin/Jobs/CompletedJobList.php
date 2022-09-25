@@ -6,11 +6,13 @@ use Livewire\Component;
 use App\Http\Livewire\Traits\AlertMessage;
 use App\Models\User;
 use App\Models\Jobs;
+use App\Models\Project;
 use Livewire\WithPagination;
 use App\Http\Livewire\Traits\WithSorting;
 
 class CompletedJobList extends Component
 {
+    
     use WithPagination;
     use WithSorting;
     use AlertMessage;
@@ -59,29 +61,28 @@ class CompletedJobList extends Component
 
     public function render()
     {
-        $queryData = Jobs::query()->where('job_status', 3)->with(['nurse','hospital','country','state','city']);
+        $queryData = Jobs::query()->where('job_status','=', 3)->with(['user','projects']);
         
         if ($this->searchNurse) {
-                $queryData->whereHas('nurse', function($query) {
+                $queryData->whereHas('user', function($query) {
                     $query->where('first_name',  'like', '%'  . $this->searchNurse . '%');
                  })->get();
         }
 
         if ($this->searchHospital) {
-            $queryData->whereHas('hospital', function($query) {
-                $query->where('first_name',  'like', '%'  . $this->searchHospital . '%');
+            $queryData->whereHas('projects', function($query) {
+                $query->where('project_name',  'like', '%'  . $this->searchHospital . '%');
              })->get();
         }
        
-        if ($this->searchLocation)
-            $queryData->Where('hospital_location', 'like', '%' . $this->searchLocation . '%');
+
         if ($this->searchDate)
             $queryData->Where('job_post_date', 'like', '%' . $this->searchDate . '%');
         if ($this->searchAmount)
             $queryData->Where('total_amount', 'like', '%' . $this->searchAmount . '%');
 
         if ($this->searchStatus >= 0)
-            $queryData->orWhere('job_status', $this->searchStatus);
+            $queryData->orWhere('active', $this->searchStatus);
 
         return view('livewire.admin.jobs.completed-job-list', [
             'details' => $queryData
@@ -111,4 +112,3 @@ class CompletedJobList extends Component
         $this->showModal('success', 'Success', 'status has been changed successfully');
     }
 }
-   

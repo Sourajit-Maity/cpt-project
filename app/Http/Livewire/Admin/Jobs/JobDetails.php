@@ -16,7 +16,7 @@ class JobDetails extends Component
     
     public function render()
     {
-        $details = Jobs::where('id',$this->job)->with('nurse','hospital')->first();
+        $details = Jobs::where('id',$this->job)->with('user','projects')->first();
         // dd($details);
         return view('livewire.admin.jobs.job-details',['details'=>$details]);
     }
