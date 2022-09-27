@@ -47,6 +47,7 @@ class Jobs extends Model
         'cancellation_comment',
         'cancelled_at',
         'active',
+        'hour'
     ];
 
     public function user()

@@ -20,7 +20,7 @@ class JobCreateEdit extends Component
 {
     use WithFileUploads;
     use AlertMessage;
-    public $project_id, $job, $shifting_timings, $user_id, $additional_instructions, $job_name, $blankArr, $employee_required, $skills, $active, $hiring_budget, $job_phone, $urgent_requirement, $cityList, $stateList, $countryList, $job_location, $job_country_id, $job_state_id, $job_city_id;
+    public $project_id, $job,$hour, $shifting_timings, $user_id, $additional_instructions, $job_name, $blankArr, $employee_required, $skills, $active, $hiring_budget, $job_phone, $urgent_requirement, $cityList, $stateList, $countryList, $job_location, $job_country_id, $job_state_id, $job_city_id;
     public $job_zipcode, $job_post_date, $promo_code, $discount_amount, $reward_discount_amount, $total_amount, $job_status, $payment_status;
     public $experience_year, $experience_month, $experience, $salary, $date_of_birth, $nurseList, $jobList, $licence_number, $licence_type;
     public $address;
@@ -87,6 +87,7 @@ class JobCreateEdit extends Component
             [
                 'active' => ['required'],
                 'user_id' => ['nullable'],
+                'hour' => ['nullable'],
                 'project_id' => ['required'],     
                 'additional_instructions' => ['nullable'],
                 'job_name' => ['required'],
@@ -107,10 +108,10 @@ class JobCreateEdit extends Component
             [
                 'active' => ['required'],
                 'user_id' => ['nullable'],
+                'hour' => ['nullable'],
                 'project_id' => ['required'],
                 'additional_instructions' => ['nullable'],
                 'job_name' => ['required'],
-                'skills' => ['required'],
                 'hiring_budget' => ['required'],
                 
                 'urgent_requirement' => ['required'],

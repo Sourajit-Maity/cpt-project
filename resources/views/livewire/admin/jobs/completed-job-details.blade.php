@@ -40,7 +40,10 @@
                                     <th>{{$details->job_name}}</th>
                                 </tr>
                                
-                               
+                                <tr>
+                                    <th><b>Hour:</b></th>
+                                    <th>{{$details->hour}}</th>
+                                </tr>
                                 
                             </thead>
                         </table>

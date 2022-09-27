@@ -22,6 +22,7 @@ class CreateJobsTable extends Migration
             $table->string('job_name')->nullable();
             $table->string('employee_required')->nullable();
             $table->string('hiring_budget')->nullable();
+            $table->string('hour')->nullable();
             $table->tinyInteger('urgent_requirement')->nullable()->comment('1:yes, 2:no');
             $table->dateTime('job_post_date')->nullable();
 

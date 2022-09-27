@@ -39,7 +39,11 @@
             <x-admin.input-error for="additional_instructions" />
         </x-admin.form-group>
      
-  
+        <x-admin.form-group>
+            <x-admin.lable value="Hour" />
+            <x-admin.input type="text" wire:model.defer="hour" placeholder="Hour" autocomplete="off" class="{{ $errors->has('hour') ? 'is-invalid' :'' }}"/>
+            <x-admin.input-error for="hour" />
+        </x-admin.form-group>
 
         
         <x-admin.form-group>
