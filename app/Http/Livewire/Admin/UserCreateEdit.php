@@ -97,8 +97,8 @@ class UserCreateEdit extends Component
             }
         }
         if (!$this->isEdit)
-            $this->user->assignRole('HOSPITAL');
-        $msgAction = 'HOSPITAL has been ' . ($this->isEdit ? 'updated' : 'added') . ' successfully';
+            $this->user->assignRole('CLIENT');
+        $msgAction = 'User has been ' . ($this->isEdit ? 'updated' : 'added') . ' successfully';
         $this->showToastr("success", $msgAction);
 
         return redirect()->route('users.index');

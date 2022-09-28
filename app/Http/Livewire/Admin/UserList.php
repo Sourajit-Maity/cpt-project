@@ -71,18 +71,18 @@ class UserList extends Component
         return view('livewire.admin.user-list', [
             'users' => $userQuery
                 ->orderBy($this->sortBy, $this->sortDirection)
-                ->role('HOSPITAL')
+                ->role('CLIENT')
                 ->paginate($this->perPage)
         ]);
     }
     public function deleteConfirm($id)
     {
         User::destroy($id);
-        $this->showModal('success', 'Success', 'Hospital has been deleted successfully');
+        $this->showModal('success', 'Success', 'User has been deleted successfully');
     }
     public function deleteAttempt($id)
     {
-        $this->showConfirmation("warning", 'Are you sure?', "You won't be able to recover this hospital!", 'Yes, delete!', 'deleteConfirm', ['id' => $id]); //($type,$title,$text,$confirmText,$method)
+        $this->showConfirmation("warning", 'Are you sure?', "You won't be able to recover this user!", 'Yes, delete!', 'deleteConfirm', ['id' => $id]); //($type,$title,$text,$confirmText,$method)
     }
 
     public function changeStatusConfirm($id)
@@ -98,6 +98,6 @@ class UserList extends Component
                 $token->delete();
             });
         }
-        $this->showModal('success', 'Success', 'Hospital status has been changed successfully');
+        $this->showModal('success', 'Success', 'User status has been changed successfully');
     }
 }
