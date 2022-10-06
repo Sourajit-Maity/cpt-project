@@ -46,11 +46,11 @@
         </x-admin.form-group>
 
         
-        <x-admin.form-group>
+        <!-- <x-admin.form-group>
             <x-admin.lable value="Hiring Budget" required />
             <x-admin.input type="text" wire:model.defer="hiring_budget" placeholder="Hiring Budget" autocomplete="off" class="{{ $errors->has('hiring_budget') ? 'is-invalid' :'' }}"/>
             <x-admin.input-error for="hiring_budget" />
-        </x-admin.form-group>
+        </x-admin.form-group> -->
 
 
        
@@ -65,23 +65,23 @@
             <x-admin.input-error for="urgent_requirement" />
         </x-admin.form-group>
 
-        <x-admin.form-group>
+        <!-- <x-admin.form-group>
             <x-admin.lable value="Promo Code" required />
             <x-admin.input type="text" wire:model.defer="promo_code" placeholder="promo code" autocomplete="off" class="{{ $errors->has('promo_code') ? 'is-invalid' :'' }}"/>
             <x-admin.input-error for="promo_code" />
-        </x-admin.form-group>
+        </x-admin.form-group> -->
 
-        <x-admin.form-group>
+        <!-- <x-admin.form-group>
             <x-admin.lable value="Total Amount" required />
             <x-admin.input type="text" wire:model.defer="total_amount" placeholder="Total Amount" autocomplete="off" class="{{ $errors->has('total_amount') ? 'is-invalid' :'' }}"/>
             <x-admin.input-error for="total_amount" />
-        </x-admin.form-group>
+        </x-admin.form-group> -->
 
-        <x-admin.form-group>
+        <!-- <x-admin.form-group>
             <x-admin.lable value="Discount Amount"  required />
             <x-admin.input type="text" wire:model.defer="discount_amount" placeholder="Discount Amount" autocomplete="off" class="{{ $errors->has('discount_amount') ? 'is-invalid' :'' }}"/>
             <x-admin.input-error for="discount_amount" />
-        </x-admin.form-group>
+        </x-admin.form-group> -->
 
 
         <x-admin.form-group>
@@ -94,7 +94,7 @@
             <x-admin.input-error for="job_status" />
         </x-admin.form-group>
 
-        <x-admin.form-group>
+        <!-- <x-admin.form-group>
             <x-admin.lable value="Payment Status" required/>
             <x-admin.dropdown  wire:model.defer="payment_status" placeHolderText="Please select one" autocomplete="off" class="{{ $errors->has('payment_status') ? 'is-invalid' :'' }}">
                     @foreach ($paymentList as $status)
@@ -102,7 +102,7 @@
                     @endforeach
             </x-admin.dropdown>
             <x-admin.input-error for="payment_status" />
-        </x-admin.form-group>
+        </x-admin.form-group> -->
 
 
         <x-admin.form-group>

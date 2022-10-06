@@ -7,7 +7,7 @@
         }
     </style>
     <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <div class="kt-section">
                     <h1>In-Progress Details</h1>
                     <div class="kt-section__content">
@@ -30,7 +30,7 @@
            
 
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <div class="kt-section">
                     <div class="kt-section__content">
                         <table class="table">
@@ -53,16 +53,12 @@
         </div>
 
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <div class="kt-section">
                     <div class="kt-section__content">
                         <table class="table">
                             <thead>
                                
-                                <tr>
-                                    <th><b>Hiring Budget:</b></th>
-                                    <th>{{$details->hiring_budget}}</th>
-                                </tr>
                                
                                 <tr>
                                     <th><b>Urgent Requirement:</b></th>
@@ -91,32 +87,9 @@
         </div>
       
 
+    
         <div class="row">
-            <div class="col-md-6">
-                <div class="kt-section">
-                    <div class="kt-section__content">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th><b>Total Amount:</b></th>
-                                    <th>{{$details->total_amount}}</th>
-                                </tr>
-                                <tr>
-                                    <th><b>Discount Amount:</b></th>
-                                    <th>{{$details->discount_amount}}</th>
-                                </tr>
-                                <tr>
-                                    <th><b>Promo Code:</b></th>
-                                    <th>{{$details->promo_code}}</th>
-                                </tr>                                
-                            </thead>
-                        </table>
-                    </div>
-                </div>
-            </div>            
-        </div>
-        <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <div class="kt-section">
                     <div class="kt-section__content">
                         <table class="table">
@@ -131,16 +104,7 @@
                                     <th>Closed</th>
                                     @endif
                                 </tr>
-                                <tr>
-                                    <th><b>Payment Status:</b></th>
-                                    @if ($details->payment_status == 1)
-                                    <th>In-Progres</th>
-                                    @elseif ($details->payment_status == 2)
-                                    <th>Completed</th>
-                                    @else
-                                    <th>Failed</th>
-                                    @endif
-                                </tr>                               
+                                                         
                             </thead>
                         </table>
                     </div>

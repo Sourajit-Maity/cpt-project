@@ -17,10 +17,7 @@
                                     <th><b>Total Amount :</b></th>
                                     <th>{{isset($details->total_amount)?$details->total_amount:""}}</th>
                                 </tr>
-                                <tr>
-                                    <th><b>Card Number:</b></th>
-                                    <th>{{isset($details->card_number)?$details->card_number:""}}</th>
-                                </tr>
+                                
                                
                             </thead>
                         </table>
@@ -48,32 +45,6 @@
             </div>            
         </div>
 
-      
-
-        <div class="row">
-            <div class="col-md-6">
-                <div class="kt-section">
-                    <div class="kt-section__content">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th><b>Total Amount:</b></th>
-                                    <th>{{$details->total_amount}}</th>
-                                </tr>
-                                <tr>
-                                    <th><b>Discount Amount:</b></th>
-                                    <th>{{$details->jobdetails->discount_amount}}</th>
-                                </tr>
-                                <tr>
-                                    <th><b>Promo Code:</b></th>
-                                    <th>{{$details->jobdetails->promo_code}}</th>
-                                </tr>                                
-                            </thead>
-                        </table>
-                    </div>
-                </div>
-            </div>            
-        </div>
         <div class="row">
             <div class="col-md-6">
                 <div class="kt-section">

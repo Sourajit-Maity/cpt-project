@@ -91,14 +91,14 @@ class JobCreateEdit extends Component
                 'project_id' => ['required'],     
                 'additional_instructions' => ['nullable'],
                 'job_name' => ['required'],
-                'hiring_budget' => ['required'],
+                //'hiring_budget' => ['required'],
                 
                 'urgent_requirement' => ['required'],
-                'promo_code' => ['required'],
-                'discount_amount' => ['required', 'regex:/^([0-9\s+\(\)]*)$/', 'min:1', 'max:50'],
-                'total_amount' => ['required', 'regex:/^([0-9\s+\(\)]*)$/', 'min:1', 'max:50'],
+                //'promo_code' => ['required'],
+                //'discount_amount' => ['required', 'regex:/^([0-9\s+\(\)]*)$/', 'min:1', 'max:50'],
+                //'total_amount' => ['required', 'regex:/^([0-9\s+\(\)]*)$/', 'min:1', 'max:50'],
                 'job_status' => ['required'],
-                'payment_status' => ['required'],
+                //'payment_status' => ['required'],
 
             ];
     }
@@ -112,14 +112,14 @@ class JobCreateEdit extends Component
                 'project_id' => ['required'],
                 'additional_instructions' => ['nullable'],
                 'job_name' => ['required'],
-                'hiring_budget' => ['required'],
+                //'hiring_budget' => ['required'],
                 
                 'urgent_requirement' => ['required'],
-                'promo_code' => ['required'],
-                'discount_amount' => ['required', 'regex:/^([0-9\s+\(\)]*)$/', 'min:1', 'max:50'],
-                'total_amount' => ['required', 'regex:/^([0-9\s+\(\)]*)$/', 'min:1', 'max:50'],
+                //'promo_code' => ['required'],
+               // 'discount_amount' => ['required', 'regex:/^([0-9\s+\(\)]*)$/', 'min:1', 'max:50'],
+                //'total_amount' => ['required', 'regex:/^([0-9\s+\(\)]*)$/', 'min:1', 'max:50'],
                 'job_status' => ['required'],
-                'payment_status' => ['required'],
+                //'payment_status' => ['required'],
             ];
     }
 

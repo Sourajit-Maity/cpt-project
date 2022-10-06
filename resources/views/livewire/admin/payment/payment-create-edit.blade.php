@@ -33,16 +33,7 @@
             <x-admin.input-error for="total_amount" />
         </x-admin.form-group>
 
-        <x-admin.form-group>
-            <x-admin.lable value="Card Id"  required />
-            <x-admin.input type="text" wire:model.defer="card_id" placeholder="Card Id"  class="{{ $errors->has('card_id') ? 'is-invalid' :'' }}" />
-            <x-admin.input-error for="card_id" />
-        </x-admin.form-group>
-        <x-admin.form-group>
-            <x-admin.lable value="Card Number" required />
-            <x-admin.input type="text" wire:model.defer="card_number" placeholder="Card Number" autocomplete="off" class="{{ $errors->has('card_number') ? 'is-invalid' :'' }}"/>
-            <x-admin.input-error for="card_number" />
-        </x-admin.form-group>
+
         <x-admin.form-group>
             <x-admin.lable value="Transaction No" required />
             <x-admin.input type="text" wire:model.defer="transaction_no" placeholder="Transaction No" autocomplete="off" class="{{ $errors->has('transaction_no') ? 'is-invalid' :'' }}"/>

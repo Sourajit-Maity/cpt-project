@@ -27,10 +27,10 @@
                     class="fa fa-fw fa-sort pull-right" style="cursor: pointer;" wire:click="sortBy('job_post_date')"></i>
             </th>
 
-            <th tabindex="0" aria-controls="kt_table_1" rowspan="1" colspan="1" style="width: 10%;"
+            <!-- <th tabindex="0" aria-controls="kt_table_1" rowspan="1" colspan="1" style="width: 10%;"
                 aria-sort="ascending" aria-label="Agent: activate to sort column descending">Total Amount <i
                     class="fa fa-fw fa-sort pull-right" style="cursor: pointer;" wire:click="sortBy('total_amount')"></i>
-            </th>
+            </th> -->
             
             <th class="align-center" tabindex="0" aria-controls="kt_table_1" rowspan="1" colspan="1" style="width: 10%;"
                 aria-label="Status: activate to sort column ascending">Status</th>
@@ -53,10 +53,10 @@
                 <x-admin.input type="search" wire:model.defer="searchDate" placeholder="" autocomplete="off"
                     class="form-control-sm form-filter" />
             </th>
-            <th>
+            <!-- <th>
                 <x-admin.input type="search" wire:model.defer="searchAmount" placeholder="" autocomplete="off"
                     class="form-control-sm form-filter" />
-            </th>
+            </th> -->
             <th>
                 <select class="form-control form-control-sm form-filter kt-input" wire:model.defer="searchStatus"
                     title="Select" data-col-index="2">
@@ -98,7 +98,7 @@
                 @endif
                     <td>{{ $item->projects->project_name }}</td>
                     <td>{!! \Carbon\Carbon::parse($item->job_post_date)->format('d M Y') !!}</td>
-                    <td>{{ $item->total_amount }}</td> 
+                    <!-- <td>{{ $item->total_amount }}</td>  -->
                 <td class="align-center"><span
                         class="kt-badge  kt-badge--{{ $item->active  == 1 ? 'success' : 'warning' }} kt-badge--inline cursor-pointer"
                         wire:click="changeStatusConfirm({{ $item->id }})">{{ $item->active  == 1 ? 'Active' : 'Deactive' }}</span>

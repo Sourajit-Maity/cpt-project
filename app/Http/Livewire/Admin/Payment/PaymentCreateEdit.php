@@ -40,8 +40,8 @@ class PaymentCreateEdit extends Component
         ];
         $this->transactionList = [
             ['value' => 1, 'text' => "Choose Status"],
-            ['value' => 1, 'text' => "Booking"],
-            ['value' => 2, 'text' => "Cancel Charge"]
+            ['value' => 1, 'text' => "Advance"],
+            ['value' => 2, 'text' => "Project Closure"]
         ];
         $this->blankArr = [
             "value"=> "", "text"=> "== Select One =="
@@ -57,10 +57,10 @@ class PaymentCreateEdit extends Component
                 
                 'status' => ['required'],
                 'total_amount' => ['required', 'regex:/^([0-9\s+\(\)]*)$/', 'min:1'],
-                'card_id' => ['required', 'regex:/^([0-9\s+\(\)]*)$/', 'min:1'],
+               // 'card_id' => ['required', 'regex:/^([0-9\s+\(\)]*)$/', 'min:1'],
                 'user_id' => ['required','exists:users,id'],
                 'job_id' => ['required','exists:jobs,id'],
-                'card_number' => ['required', 'regex:/^([0-9\s+\(\)]*)$/', 'min:1'],
+               // 'card_number' => ['required', 'regex:/^([0-9\s+\(\)]*)$/', 'min:1'],
                 'transaction_no' => ['required'],
                 'transaction_for' => ['required'],
 
@@ -72,10 +72,10 @@ class PaymentCreateEdit extends Component
             [
                 'status' => ['required'],
                 'total_amount' => ['required', 'regex:/^([0-9\s+\(\)]*)$/', 'min:1'],
-                'card_id' => ['required', 'regex:/^([0-9\s+\(\)]*)$/', 'min:1'],
+               // 'card_id' => ['required', 'regex:/^([0-9\s+\(\)]*)$/', 'min:1'],
                 'user_id' => ['required','exists:users,id'],
                 'job_id' => ['required','exists:jobs,id'],
-                'card_number' => ['required', 'regex:/^([0-9\s+\(\)]*)$/', 'min:1'],
+                //'card_number' => ['required', 'regex:/^([0-9\s+\(\)]*)$/', 'min:1'],
                 'transaction_no' => ['required'],
                 'transaction_for' => ['required'],
             ];
