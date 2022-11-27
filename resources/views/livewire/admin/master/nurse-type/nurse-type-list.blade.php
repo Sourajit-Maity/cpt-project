@@ -25,6 +25,10 @@
                 aria-sort="ascending" aria-label="Agent: activate to sort column descending">Project Name <i
                     class="fa fa-fw fa-sort pull-right" style="cursor: pointer;" wire:click="sortBy('project_name')"></i>
             </th>
+            <th tabindex="0" aria-controls="kt_table_1" rowspan="1" colspan="1" style="width: 22%;"
+                aria-sort="ascending" aria-label="Agent: activate to sort column descending">Project Url <i
+                    class="fa fa-fw fa-sort pull-right" style="cursor: pointer;" wire:click="sortBy('project_url')"></i>
+            </th>
          
             <th class="align-center" tabindex="0" aria-controls="kt_table_1" rowspan="1" colspan="1" style="width: 15%;"
                 aria-label="Status: activate to sort column ascending">Status</th>
@@ -34,6 +38,10 @@
         <tr class="filter">
             <th>
                 <x-admin.input type="search" wire:model.defer="searchType" placeholder="" autocomplete="off"
+                    class="form-control-sm form-filter" />
+            </th>
+            <th>
+                <x-admin.input type="search" wire:model.defer="searchUrl" placeholder="" autocomplete="off"
                     class="form-control-sm form-filter" />
             </th>
          
@@ -72,6 +80,7 @@
         @forelse($types as $data)
             <tr role="row" class="odd">
                 <td>{{ $data->project_name }}</td>
+                <td><a href="{{ $data->project_url }}">{{ $data->project_url }}</a></td>
                 <td class="align-center">
                     <span class="kt-badge  kt-badge--{{ $data->active == 1 ? 'success' : 'warning' }} kt-badge--inline cursor-pointer" wire:click="changeStatusConfirm({{ $data->id }})">{{ $data->active == 1 ? 'Active' : 'Inactive' }}</span>
                 </td>

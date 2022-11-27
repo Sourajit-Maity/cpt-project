@@ -7,6 +7,12 @@
             <x-admin.input-error for="project_name" />
         </x-admin.form-group>
 
+        <x-admin.form-group>
+            <x-admin.lable value="Project Url" required />
+            <x-admin.input type="text" wire:model.defer="project_url" placeholder="Project Url"  class="{{ $errors->has('project_url') ? 'is-invalid' :'' }}" />
+            <x-admin.input-error for="project_url" />
+        </x-admin.form-group>
+
 
         <x-admin.form-group>
             <x-admin.lable value="Status" />

@@ -15,7 +15,7 @@ class NurseTypeCreateEdit extends Component
     use AlertMessage;
     use WithFileUploads;
 
-    public $project_name, $nursetype, $active;
+    public $project_name,$project_url, $nursetype, $active;
     public $isEdit = false;
     public $statusList = [];
     protected $listeners = ['refreshProducts' => '$refresh'];
@@ -44,6 +44,7 @@ class NurseTypeCreateEdit extends Component
         return
             [
                 'project_name' => ['required','max:255', Rule::unique('projects')],
+                'project_url' => ['required','max:255', Rule::unique('projects')],
                 'active' => ['required'],
             ];
     }
@@ -52,6 +53,7 @@ class NurseTypeCreateEdit extends Component
         return
             [
                 'project_name' => ['required','max:255', Rule::unique('projects')->ignore($this->nursetype->id)],
+                'project_url' => ['required','max:255', Rule::unique('projects')->ignore($this->nursetype->id)],
                 'active' => ['required'],
             ];
     }
